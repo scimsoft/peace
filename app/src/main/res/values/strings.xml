@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Peace</string>
+    <string name="device_admin_label">Peace Device Admin</string>
+    <string name="device_admin_description">Allows Peace to resist removal and enforce always-on VPN lockdown while a focus session is active.</string>
+
+    <string name="title_idle">Internet unlocked</string>
+    <string name="title_locked">Internet locked</string>
+    <string name="remaining_label">Time remaining</string>
+    <string name="duration_label">Lock duration</string>
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
+    <string name="allowlist_label">Optional allowlist (package name)</string>
+    <string name="allowlist_hint">e.g. com.android.chrome — leave empty for none</string>
+    <string name="allowlist_note">Note: phone calls and SMS do not use the internet VPN and keep working.</string>
+    <string name="btn_start">Start lock</string>
+    <string name="btn_stop_disabled">Stop (blocked until timer ends)</string>
+    <string name="btn_emergency">Request emergency unlock</string>
+    <string name="btn_cancel_emergency">Cancel emergency request</string>
+    <string name="emergency_cooldown_label">Emergency cooldown (hours)</string>
+    <string name="status_not_owner">Not device owner — provision with adb (see README). Lock will be weaker.</string>
+    <string name="status_owner">Device owner active.</string>
+    <string name="status_vpn_consent">VPN permission required to block traffic.</string>
+    <string name="notification_channel_name">Peace lock</string>
+    <string name="notification_channel_desc">Shows while internet lock is active</string>
+    <string name="notification_title">Peace — internet locked</string>
+    <string name="notification_text">Remaining: %1$s</string>
+    <string name="emergency_pending">Emergency unlock pending — unlocks at %1$s</string>
+    <string name="error_duration">Pick a duration greater than zero.</string>
+</resources>

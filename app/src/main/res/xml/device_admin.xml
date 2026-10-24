@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Policies used when this app is provisioned as device owner via:
+    adb shell dpm set-device-owner com.scimsoft.peace/.LockDeviceAdminReceiver
+  Device-owner mode is required for always-on VPN lockdown and strong uninstall block.
+-->
+<device-admin xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-policies>
+        <force-lock />
+        <wipe-data />
+        <limit-password />
+        <watch-login />
+        <reset-password />
+        <expire-password />
+        <disable-camera />
+        <disable-keyguard-features />
+    </uses-policies>
+</device-admin>
