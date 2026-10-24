@@ -30,3 +30,4 @@ owner-tool/keys/*.pem
 !owner-tool/keys/.gitkeep
 owner-tool/.venv/
 owner-tool/__pycache__/
+/.gradle/

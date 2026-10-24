@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_VPN" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
@@ -42,14 +41,23 @@
           all IP traffic for non-allowed apps is captured and discarded.
           Calls / SMS use the telephony stack, not this VPN — they keep working.
         -->
+        <!--
+          Use specialUse: android-35 platform attrs do not expose a "vpn"
+          foregroundServiceType flag (FOREGROUND_SERVICE_TYPE_VPN is absent from
+          ServiceInfo in this SDK). specialUse + PROPERTY_SPECIAL_USE_FGS_SUBTYPE
+          is the supported declaration for a blackhole VpnService FGS.
+        -->
         <service
             android:name=".LockVpnService"
             android:exported="false"
-            android:foregroundServiceType="vpn"
+            android:foregroundServiceType="specialUse"
             android:permission="android.permission.BIND_VPN_SERVICE">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="internet_lock_vpn" />
         </service>
 
         <!-- Foreground timer that owns the lock countdown and notification. -->
