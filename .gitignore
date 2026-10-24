@@ -23,3 +23,10 @@ app/release/
 *.jks
 *.keystore
 !debug.keystore
+
+# Owner private key — never commit
+owner-tool/keys/private.pem
+owner-tool/keys/*.pem
+!owner-tool/keys/.gitkeep
+owner-tool/.venv/
+owner-tool/__pycache__/

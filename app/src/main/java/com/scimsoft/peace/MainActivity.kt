@@ -1,6 +1,7 @@
 package com.scimsoft.peace
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.VpnService
 import android.os.Build
@@ -16,7 +17,7 @@ import com.scimsoft.peace.databinding.ActivityMainBinding
 
 /**
  * Simple lock UI: pick duration, optional allowlist, start lock.
- * While locked, stop is not offered (timer / emergency unlock only).
+ * While locked, stop is not offered (timer / emergency unlock / owner unlock only).
  */
 class MainActivity : AppCompatActivity() {
 
@@ -62,6 +63,9 @@ class MainActivity : AppCompatActivity() {
         binding.cancelEmergencyButton.setOnClickListener {
             EmergencyUnlock.cancel(this)
             refreshUi()
+        }
+        binding.ownerUnlockButton.setOnClickListener {
+            startActivity(Intent(this, OwnerUnlockActivity::class.java))
         }
     }
 
@@ -135,6 +139,7 @@ class MainActivity : AppCompatActivity() {
             binding.startButton.isEnabled = false
             binding.startButton.text = getString(R.string.btn_stop_disabled)
             binding.emergencyButton.visibility = View.VISIBLE
+            binding.ownerUnlockButton.visibility = View.VISIBLE
 
             val pending = EmergencyUnlock.isPending(prefs)
             binding.cancelEmergencyButton.visibility = if (pending) View.VISIBLE else View.GONE
@@ -156,6 +161,7 @@ class MainActivity : AppCompatActivity() {
             binding.startButton.isEnabled = true
             binding.startButton.text = getString(R.string.btn_start)
             binding.emergencyButton.visibility = View.GONE
+            binding.ownerUnlockButton.visibility = View.GONE
             binding.cancelEmergencyButton.visibility = View.GONE
             binding.emergencyStatusText.visibility = View.GONE
             if (binding.emergencyHoursInput.text.isNullOrBlank()) {

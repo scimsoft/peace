@@ -31,6 +31,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".OwnerUnlockActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize" />
+
         <!--
           Blackhole VpnService. While connected (and always-on + lockdown as device owner),
           all IP traffic for non-allowed apps is captured and discarded.

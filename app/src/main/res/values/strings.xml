@@ -27,4 +27,26 @@
     <string name="notification_text">Remaining: %1$s</string>
     <string name="emergency_pending">Emergency unlock pending — unlocks at %1$s</string>
     <string name="error_duration">Pick a duration greater than zero.</string>
+
+    <string name="btn_owner_unlock">Owner unlock…</string>
+    <string name="owner_unlock_title">Owner unlock</string>
+    <string name="owner_unlock_blurb">Only the product owner can authorize an early unlock. Read the challenge aloud on a call, or enter the master password if the owner shares it.</string>
+    <string name="owner_method_label">Unlock method</string>
+    <string name="owner_method_challenge">Challenge–response code (most secure)</string>
+    <string name="owner_method_password">Master password (simpler fallback)</string>
+    <string name="owner_challenge_label">Challenge (read to owner)</string>
+    <string name="owner_challenge_expires">Expires at %1$s · single-use</string>
+    <string name="owner_new_challenge">New challenge</string>
+    <string name="owner_response_hint">Response code from owner</string>
+    <string name="owner_submit_response">Verify response &amp; unlock</string>
+    <string name="owner_password_hint">Master password</string>
+    <string name="owner_submit_password">Unlock with password</string>
+    <string name="owner_unlock_success">Unlocked by owner.</string>
+    <string name="owner_unlock_failed">Invalid code or password.</string>
+    <string name="owner_response_empty">Enter the response code.</string>
+    <string name="owner_password_empty">Enter the master password.</string>
+    <string name="owner_not_locked">Device is not locked.</string>
+    <string name="owner_none_configured">Owner unlock is not configured in this build. Paste the public key / password hash into OwnerUnlockConfig.kt (see README).</string>
+    <string name="owner_challenge_unconfigured">Challenge–response is not configured (OWNER_PUBLIC_KEY_X509_HEX empty).</string>
+    <string name="owner_password_unconfigured">Master password is not configured (salt/hash empty in OwnerUnlockConfig.kt).</string>
 </resources>
